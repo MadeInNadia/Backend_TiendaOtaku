@@ -1,5 +1,5 @@
 class CreatePerfils < ActiveRecord::Migration[6.1]
-  def change
+  def up
     create_table :perfils do |t|
       t.string :favoritos
       t.string :puntos
@@ -10,5 +10,8 @@ class CreatePerfils < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+  end
+  def down
+    drop_table :perfils
   end
 end

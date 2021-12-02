@@ -1,5 +1,5 @@
 class CreateCompras < ActiveRecord::Migration[6.1]
-  def change
+  def up
     create_table :compras do |t|
       t.string :total
       t.string :fecha
@@ -8,5 +8,8 @@ class CreateCompras < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+  end
+  def down
+    drop_table :compras
   end
 end
