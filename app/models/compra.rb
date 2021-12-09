@@ -1,4 +1,4 @@
 class Compra < ApplicationRecord
+    # has_many :producto
     belongs_to :usuario
-    has_many :producto
 end

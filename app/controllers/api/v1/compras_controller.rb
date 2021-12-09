@@ -46,6 +46,6 @@ class Api::V1::ComprasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def compra_params
-      params.require(:compra).permit(:total, :fecha, :producto_id)
+      params.require(:compra).permit(:total, :fecha)
     end
 end

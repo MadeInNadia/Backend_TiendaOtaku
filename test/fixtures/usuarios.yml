@@ -2,8 +2,8 @@
 
 one:
   nombre: MyString
-  contraseña: MyString
+  contrasenia: MyString
 
 two:
   nombre: MyString
-  contraseña: MyString
+  contrasenia: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_173654) do
+ActiveRecord::Schema.define(version: 2021_12_09_162743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,29 +18,8 @@ ActiveRecord::Schema.define(version: 2021_12_01_173654) do
   create_table "compras", force: :cascade do |t|
     t.string "total"
     t.string "fecha"
-    t.bigint "producto_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["producto_id"], name: "index_compras_on_producto_id"
-  end
-
-  create_table "contactos", force: :cascade do |t|
-    t.string "nombre"
-    t.string "email"
-    t.string "pregunta"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "perfils", force: :cascade do |t|
-    t.string "favoritos"
-    t.string "puntos"
-    t.string "comentarios"
-    t.string "intereses"
-    t.bigint "usuario_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["usuario_id"], name: "index_perfils_on_usuario_id"
   end
 
   create_table "productos", force: :cascade do |t|
@@ -53,11 +32,12 @@ ActiveRecord::Schema.define(version: 2021_12_01_173654) do
 
   create_table "usuarios", force: :cascade do |t|
     t.string "nombre"
-    t.string "contraseña"
+    t.string "contrasenia"
+    t.bigint "compra_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["compra_id"], name: "index_usuarios_on_compra_id"
   end
 
-  add_foreign_key "compras", "productos"
-  add_foreign_key "perfils", "usuarios"
+  add_foreign_key "usuarios", "compras"
 end

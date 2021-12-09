@@ -1,7 +1,6 @@
 class Api::V1::UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :update, :destroy]
   before_action :set_models, only: [:index, :show]
-
   # GET /usuarios
   def index
     @usuarios = Usuario.all
@@ -41,7 +40,7 @@ class Api::V1::UsuariosController < ApplicationController
 
   private
   def set_models
-    @models = [:perfil]
+    @models = [:compra]
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
@@ -50,6 +49,6 @@ class Api::V1::UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :contraseña, :compra_id, :contacto_id)
+      params.require(:usuario).permit(:nombre, :contrasenia)
     end
 end

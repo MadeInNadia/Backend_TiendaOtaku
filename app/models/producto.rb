@@ -1,3 +1,3 @@
 class Producto < ApplicationRecord
-    belongs_to :compra
+#    belongs_to :compra
 end
